@@ -10,14 +10,14 @@ import Cocoa
 
 // class must be public for package to work
 public class File {
-    var title = "Read Title"
-    var message = "Test save message"
-    var allowedFileTypes = ["ccf"]
-    var canCreateDirectories = true
-    var useDefaultURL = true // Set false if you don't want to save last file opened
-    var url: URL?
+    public var title = "Read Title"
+    public var message = "Test save message"
+    public var allowedFileTypes = ["ccf"]
+    public var canCreateDirectories = true
+    public var useDefaultURL = true // Set false if you don't want to save last file opened
+    public var url: URL?
     
-    func open() -> URL? {
+    public func open() -> URL? {
         let openPanel = NSOpenPanel()
         
         openPanel.title = title
@@ -87,7 +87,7 @@ public class File {
      }
      */
     
-    func save() -> URL? {
+    public func save() -> URL? {
         let savePanel = NSSavePanel()
         savePanel.title = title
         savePanel.message = message
@@ -135,6 +135,11 @@ public class File {
             return nil
         }
         return nil
+    }
+    
+    public init() {
+        title = "Title"
+        message = "Message"
     }
     
     func GetDefaultURL() -> URL? {
