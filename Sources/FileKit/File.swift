@@ -8,6 +8,7 @@
 
 import Cocoa
 
+// class must be public for package to work
 public class File {
     var title = "Read Title"
     var message = "Test save message"
