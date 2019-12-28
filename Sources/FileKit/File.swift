@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class File {
+public class File {
     var title = "Read Title"
     var message = "Test save message"
     var allowedFileTypes = ["ccf"]
