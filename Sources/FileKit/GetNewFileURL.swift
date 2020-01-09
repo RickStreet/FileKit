@@ -69,5 +69,10 @@ public class GetNewFileURL {
         return ""
     }
     
+    public init() {
+        
+    }
+    
+    
 }
 
