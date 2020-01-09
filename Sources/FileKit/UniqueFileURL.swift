@@ -9,7 +9,7 @@
 import Cocoa
 import StringKit
 
-public class NewFileURL {
+public class UniqueFileURL {
     
     // create unique file name xxxx-nnn.ttt
     
