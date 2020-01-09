@@ -100,7 +100,7 @@ public class File {
         
         if let url = self.url {
             savePanel.directoryURL = url.deletingLastPathComponent()
-            savePanel.nameFieldStringValue = url.lastPathComponent
+            // savePanel.nameFieldStringValue = url.lastPathComponent
         } else {
             if useDefaultURL {
                 if let url = GetDefaultURL() {
