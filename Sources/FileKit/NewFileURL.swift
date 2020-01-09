@@ -9,14 +9,15 @@
 import Cocoa
 import StringKit
 
-public class GetNewFileURL {
+public class NewFileURL {
     
     // create unique file name xxxx-nnn.ttt
     
     
     /// Generate new file name in form xxx-nnn.ttt
     /// - Parameter fullFileName: Original full file name string
-    public func newURL(fullFileName: String) -> URL {
+    public static func newURL(fileURL: URL) -> URL {
+        let fullFileName = fileURL.path
         let fm = FileManager.default
         var i = 0
         let newExt = ext(file: fullFileName)
