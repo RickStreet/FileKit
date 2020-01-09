@@ -99,8 +99,8 @@ public class File {
         savePanel.isExtensionHidden = true
         
         if let url = self.url {
-            savePanel.directoryURL = url.deletingLastPathComponent()
-            // savePanel.nameFieldStringValue = url.lastPathComponent
+            savePanel.directoryURL = url
+            savePanel.nameFieldStringValue = url.lastPathComponent
         } else {
             if useDefaultURL {
                 if let url = GetDefaultURL() {
@@ -120,11 +120,8 @@ public class File {
         }
         if response == NSApplication.ModalResponse.OK {
             guard let url = savePanel.url else { return nil}
-            if self.url == nil {
-                if useDefaultURL {
-                    SaveDefultURL(url)
-                    
-                }
+            if useDefaultURL {
+                SaveDefultURL(url)
             }
             print(url.path)
             return url
@@ -136,7 +133,7 @@ public class File {
         }
         return nil
     }
-    
+
     public init() {
         title = "Title"
         message = "Message"
