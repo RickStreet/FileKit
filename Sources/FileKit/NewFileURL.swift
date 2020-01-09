@@ -16,7 +16,7 @@ public class NewFileURL {
     
     /// Generate new file name in form xxx-nnn.ttt
     /// - Parameter fullFileName: Original full file name string
-    public static func newURL(fileURL: URL) -> URL {
+    public func newURL(fileURL: URL) -> URL {
         let fullFileName = fileURL.path
         let fm = FileManager.default
         var i = 0
