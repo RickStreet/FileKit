@@ -16,6 +16,7 @@ public class File {
     public var canCreateDirectories = true
     public var useDefaultURL = true // Set false if you don't want to save last file opened
     public var url: URL?
+    public var userDefaultKey: String?
     
     public func open() -> URL? {
         let openPanel = NSOpenPanel()
@@ -141,19 +142,28 @@ public class File {
     
     func GetDefaultURL() -> URL? {
         // get default directgory
-        if let path = UserDefaults.standard.string(forKey: "DefaultPath") {
-            return URL(fileURLWithPath: path)
-            
-            // print("using url from default:  \(myURL.path)")
+        if let key = userDefaultKey {
+            if let path = UserDefaults.standard.string(forKey: key) {
+                return URL(fileURLWithPath: path)
+            }
+        } else {
+            if let path = UserDefaults.standard.string(forKey: "DefaultPath") {
+                return URL(fileURLWithPath: path)
+                
+                // print("using url from default:  \(myURL.path)")
+            }
         }
         return nil
     }
     
     func SaveDefultURL(_ url: URL) {
-        if url.path != "" {
+        if let key = userDefaultKey {
             UserDefaults.standard.set(url.path, forKey: "DefaultPath")
-            // print("saving default path: \(url.path)")
-        }
-        
+        } else {
+            if url.path != "" {
+                UserDefaults.standard.set(url.path, forKey: "DefaultPath")
+                // print("saving default path: \(url.path)")
+            }
+        }        
     }
 }
