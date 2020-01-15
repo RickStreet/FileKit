@@ -25,7 +25,7 @@ public class UniqueFileURL {
         
         repeat {
             i += 1
-            newFullFileName = base(file: fullFileName) + "-" + String(format: "%03d", i) + newExt
+            newFullFileName = baseNoVersion(file: fullFileName) + "-" + String(format: "%03d", i) + newExt
             print("newFullFileName \(newFullFileName)")
         } while fm.fileExists(atPath: newFullFileName)
 
@@ -40,8 +40,8 @@ public class UniqueFileURL {
         return fullFileName
     }
     
-    // file name before "-"
-    func base(file: String) -> String {
+    // file name before "-" with extension
+    func baseNoVersion(file: String) -> String {
         if let i = file.indexBefore("-") {
             // return file.substring(to: i)
             return String(file[...i])
