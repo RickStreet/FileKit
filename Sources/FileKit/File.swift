@@ -144,6 +144,7 @@ public class File {
         // get default directgory
         if let key = userDefaultKey {
             if let path = UserDefaults.standard.string(forKey: key) {
+                print("Retrieved key \(key) \(path)")
                 return URL(fileURLWithPath: path)
             }
         } else {
@@ -159,6 +160,7 @@ public class File {
     func SaveDefultURL(_ url: URL) {
         if let key = userDefaultKey {
             UserDefaults.standard.set(url.path, forKey: key)
+            print("Saved key \(key): \(url.path)")
         } else {
             if url.path != "" {
                 UserDefaults.standard.set(url.path, forKey: "DefaultPath")
