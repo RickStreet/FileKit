@@ -158,7 +158,7 @@ public class File {
     
     func SaveDefultURL(_ url: URL) {
         if let key = userDefaultKey {
-            UserDefaults.standard.set(url.path, forKey: "DefaultPath")
+            UserDefaults.standard.set(url.path, forKey: key)
         } else {
             if url.path != "" {
                 UserDefaults.standard.set(url.path, forKey: "DefaultPath")
