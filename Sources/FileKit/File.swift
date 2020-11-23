@@ -20,7 +20,6 @@ public class File {
     
     public func open() -> URL? {
         let openPanel = NSOpenPanel()
-        
         openPanel.title = title
         openPanel.message = message
         openPanel.allowedFileTypes = allowedFileTypes
@@ -58,36 +57,7 @@ public class File {
         }
         return nil
     }
-    
-    /*
-     func save(url: URL) -> URL? {
-     let savePanel = NSSavePanel()
-     
-     savePanel.title = title
-     savePanel.message = message
-     savePanel.allowedFileTypes = allowedFileTypes
-     savePanel.canCreateDirectories = canCreateDirectories
-     savePanel.directoryURL = url
-     savePanel.nameFieldStringValue = url.lastPathComponent
-     savePanel.canSelectHiddenExtension = true
-     savePanel.showsHiddenFiles = true
-     savePanel.treatsFilePackagesAsDirectories = true
-     
-     let response = savePanel.runModal()
-     if response == NSApplication.ModalResponse.OK {
-     guard let url = savePanel.url else { return nil}
-     print(url.path)
-     return url
-     }
-     
-     if response == NSApplication.ModalResponse.cancel {
-     print("No save url selected")
-     return nil
-     }
-     return nil
-     }
-     */
-    
+        
     public func save() -> URL? {
         let savePanel = AppKit.NSSavePanel()
         savePanel.title = title
@@ -150,7 +120,6 @@ public class File {
         } else {
             if let path = UserDefaults.standard.string(forKey: "DefaultPath") {
                 return URL(fileURLWithPath: path)
-                
                 // print("using url from default:  \(myURL.path)")
             }
         }
