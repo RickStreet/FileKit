@@ -67,7 +67,7 @@ public class File {
         savePanel.canSelectHiddenExtension = true
         savePanel.showsHiddenFiles = true
         savePanel.treatsFilePackagesAsDirectories = true
-        savePanel.isExtensionHidden = true
+        savePanel.isExtensionHidden = false
         
         if let url = self.url {
             savePanel.directoryURL = url
