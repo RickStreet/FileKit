@@ -10,12 +10,12 @@ import Cocoa
 import UniformTypeIdentifiers
 
 // class must be public for package to work
-@available(macOS 11.0, *)
+// @available(macOS 11.0, *)
 public class File {
     public var title = "Read Title"
     public var message = "Test save message"
     public var allowedFileTypes: [String]? = nil
-    public var allowedContentTypes: [UTType] = [.plainText]
+    // public var allowedContentTypes: [UTType] = [.plainText]
     public var canCreateDirectories = true
     public var nameFieldLabel = "Save as:"
     public var useDefaultURL = true // Set false if you don't want to save last file opened
@@ -67,7 +67,7 @@ public class File {
         savePanel.title = title
         savePanel.message = message
         savePanel.allowedFileTypes = allowedFileTypes
-        savePanel.allowedContentTypes = allowedContentTypes
+        // savePanel.allowedContentTypes = allowedContentTypes
         savePanel.canCreateDirectories = canCreateDirectories
         savePanel.canSelectHiddenExtension = true
         savePanel.showsHiddenFiles = false
