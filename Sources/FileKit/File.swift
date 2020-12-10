@@ -59,7 +59,7 @@ public class File {
     }
         
     public func save() -> URL? {
-        let savePanel = AppKit.NSSavePanel()
+        let savePanel = NSSavePanel()
         savePanel.title = title
         savePanel.message = message
         savePanel.allowedFileTypes = allowedFileTypes
