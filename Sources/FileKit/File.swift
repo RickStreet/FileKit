@@ -14,6 +14,7 @@ public class File {
     public var message = "Test save message"
     public var allowedFileTypes = ["ccf"]
     public var canCreateDirectories = true
+    public var nameFieldLabel = "Save as:"
     public var useDefaultURL = true // Set false if you don't want to save last file opened
     public var url: URL?
     public var userDefaultKey: String?
@@ -65,11 +66,10 @@ public class File {
         savePanel.allowedFileTypes = allowedFileTypes
         savePanel.canCreateDirectories = canCreateDirectories
         savePanel.canSelectHiddenExtension = true
-        savePanel.showsHiddenFiles = true
+        savePanel.showsHiddenFiles = false
         savePanel.treatsFilePackagesAsDirectories = true
         savePanel.isExtensionHidden = false
-        savePanel.canSelectHiddenExtension = true
-        
+        savePanel.nameFieldLabel = nameFieldLabel
         if let url = self.url {
             savePanel.directoryURL = url
             savePanel.nameFieldStringValue = url.lastPathComponent
