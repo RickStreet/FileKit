@@ -10,7 +10,6 @@ import Cocoa
 import UniformTypeIdentifiers
 
 // class must be public for package to work
-// @available(macOS 11.0, *)
 public class File {
     public var title = "Read Title"
     public var message = "Test save message"

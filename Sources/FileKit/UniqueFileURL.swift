@@ -20,12 +20,15 @@ public class UniqueFileURL {
         let fullFileName = fileURL.path
         let fm = FileManager.default
         var i = 0
-        let newExt = ext(file: fullFileName)
+        // let newExt = ext(file: fullFileName)
+        let newExt = fullFileName.fileExtension() ?? ""
+        let baseFile = fullFileName.fileBaseNoVersion()
         var newFullFileName = ""
         
         repeat {
             i += 1
-            newFullFileName = baseNoVersion(file: fullFileName) + "-" + String(format: "%03d", i) + newExt
+            newFullFileName = baseFile + "-" + String(format: "%03d", i) + newExt
+            // newFullFileName = baseNoVersion(file: fullFileName) + "-" + String(format: "%03d", i) + newExt
             print("newFullFileName \(newFullFileName)")
         } while fm.fileExists(atPath: newFullFileName)
 
