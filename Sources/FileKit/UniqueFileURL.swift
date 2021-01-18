@@ -21,7 +21,7 @@ public class UniqueFileURL {
         let fm = FileManager.default
         var i = 0
         // let newExt = ext(file: fullFileName)
-        let newExt = fullFileName.fileExtension() ?? ""
+        let newExt = ".\(fullFileName.fileExtension() ?? "")"
         let baseFile = fullFileName.fileBaseNoVersion()
         var newFullFileName = ""
         
