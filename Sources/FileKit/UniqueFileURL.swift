@@ -35,6 +35,7 @@ public class UniqueFileURL {
         return URL(fileURLWithPath: newFullFileName)  
     }
     
+    /*
     func dir(fullFileName: String) -> String {
         if let index = fullFileName.reverseIndexOf("/") {
             // return fullFileName.substring(to: index)
@@ -42,20 +43,9 @@ public class UniqueFileURL {
         }
         return fullFileName
     }
+    */
     
-    // file name before "-" with extension
-    func baseNoVersion(file: String) -> String {
-        if let i = file.indexBefore("-") {
-            // return file.substring(to: i)
-            return String(file[...i])
-        }
-        if let i = file.indexBefore(".") {
-            // return file.substring(to: i)
-            return String(file[...i])
-        }
-        return file
-    }
-    
+    /*
     func file(fullFileName: String) -> String {
         if let index = fullFileName.reverseIndexOf("/") {
             // return fullFileName.substring(from: index)
@@ -64,14 +54,7 @@ public class UniqueFileURL {
         return fullFileName
         
     }
-    
-    func ext(file: String) -> String {
-        if let i = file.indexOf(".") {
-            // return file.substring(from: i)
-            return String(file[i...])
-        }
-        return ""
-    }
+    */
     
     public init() {
         
