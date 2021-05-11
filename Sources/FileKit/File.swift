@@ -60,6 +60,48 @@ public class File {
         }
         return nil
     }
+    
+    public func openDirectory() -> URL? {
+        let openPanel = NSOpenPanel()
+        openPanel.title = title
+        openPanel.message = message
+        // openPanel.allowedFileTypes = allowedFileTypes
+        openPanel.canCreateDirectories = canCreateDirectories
+        openPanel.canChooseFiles = false
+        openPanel.canChooseDirectories = true
+        if let url = self.url { // url provided
+            print("url provided")
+            openPanel.directoryURL = url
+        } else {
+            print("going to use default...")
+            if useDefaultURL {
+                if let url = GetDefaultURL() {
+                    print("got default \(url.path)")
+                    openPanel.directoryURL = url
+                    }
+            }
+        }
+        
+        let response = openPanel.runModal()
+        
+        if response == NSApplication.ModalResponse.OK {
+            guard let url = openPanel.url else { return nil }
+            print(url.path )
+            print()
+            if self.url == nil {
+                if useDefaultURL {
+                    SaveDefultURL(url)
+                }
+            }
+            return url
+        }
+        
+        if response == NSApplication.ModalResponse.cancel {
+            print("No open url selected")
+            return nil
+        }
+        return nil
+    }
         
     public func save() -> URL? {
         let savePanel = NSSavePanel()
@@ -73,6 +115,7 @@ public class File {
         savePanel.treatsFilePackagesAsDirectories = true
         savePanel.isExtensionHidden = false
         savePanel.nameFieldLabel = nameFieldLabel
+    
         if let url = self.url {
             savePanel.directoryURL = url
             savePanel.nameFieldStringValue = url.lastPathComponent
