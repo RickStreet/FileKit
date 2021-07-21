@@ -20,7 +20,8 @@ public class File {
     public var useDefaultURL = true // Set false if you don't want to save last file opened
     public var url: URL?
     public var userDefaultKey: String?
-    
+    public var defaultFileName: String?
+
     public func open() -> URL? {
         let openPanel = NSOpenPanel()
         openPanel.title = title
@@ -115,7 +116,10 @@ public class File {
         savePanel.treatsFilePackagesAsDirectories = true
         savePanel.isExtensionHidden = false
         savePanel.nameFieldLabel = nameFieldLabel
-    
+        if let defaultName = defaultFileName {
+            savePanel.nameFieldStringValue = defaultName
+        }
+
         if let url = self.url {
             savePanel.directoryURL = url
             savePanel.nameFieldStringValue = url.lastPathComponent
