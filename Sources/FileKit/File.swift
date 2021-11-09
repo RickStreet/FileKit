@@ -119,11 +119,7 @@ public class File {
 
         if let url = self.url {
             savePanel.directoryURL = url
-            if let defaultName = defaultFileName {
-                savePanel.nameFieldStringValue = defaultName
-            } else {
-                savePanel.nameFieldStringValue = url.lastPathComponent
-            }
+            savePanel.nameFieldStringValue = url.lastPathComponent
         } else {
             if useDefaultURL {
                 if let url = GetDefaultURL() {
@@ -131,6 +127,10 @@ public class File {
                     savePanel.nameFieldStringValue = url.lastPathComponent
                 }
             }
+        }
+        
+        if let defaultName = defaultFileName {
+            savePanel.nameFieldStringValue = defaultName
         }
         
         print()
