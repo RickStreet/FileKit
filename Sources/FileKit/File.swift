@@ -116,13 +116,14 @@ public class File {
         savePanel.treatsFilePackagesAsDirectories = true
         savePanel.isExtensionHidden = false
         savePanel.nameFieldLabel = nameFieldLabel
-        if let defaultName = defaultFileName {
-            savePanel.nameFieldStringValue = defaultName
-        }
 
         if let url = self.url {
             savePanel.directoryURL = url
-            savePanel.nameFieldStringValue = url.lastPathComponent
+            if let defaultName = defaultFileName {
+                savePanel.nameFieldStringValue = defaultName
+            } else {
+                savePanel.nameFieldStringValue = url.lastPathComponent
+            }
         } else {
             if useDefaultURL {
                 if let url = GetDefaultURL() {
