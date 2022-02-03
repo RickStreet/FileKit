@@ -22,5 +22,16 @@ public extension UTType {
     static var dpa: UTType {
         UTType.types(tag: "dpa", tagClass: .filenameExtension, conformingTo: nil).first!
     }
+    static var vec: UTType {
+        UTType.types(tag: "vec", tagClass: .filenameExtension, conformingTo: nil).first!
+    }
+    static var dpv: UTType {
+        UTType.types(tag: "dpv", tagClass: .filenameExtension, conformingTo: nil).first!
+    }
+    static var xlsx: UTType {
+        UTType.types(tag: "xlsx", tagClass: .filenameExtension, conformingTo: nil).first!
+    }
+
+
 
 }
