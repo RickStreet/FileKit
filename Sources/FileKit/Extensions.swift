@@ -28,6 +28,21 @@ public extension UTType {
     static var dpv: UTType {
         UTType.types(tag: "dpv", tagClass: .filenameExtension, conformingTo: nil).first!
     }
+    static var cle: UTType {
+        UTType.types(tag: "cle", tagClass: .filenameExtension, conformingTo: nil).first!
+    }
+    static var collectPoint: UTType {
+        UTType.types(tag: "", tagClass: .filenameExtension, conformingTo: nil).first!
+    }
+    static var clc: UTType {
+        UTType.types(tag: "clc", tagClass: .filenameExtension, conformingTo: nil).first!
+    }
+    static var ext: UTType {
+        UTType.types(tag: "ext", tagClass: .filenameExtension, conformingTo: nil).first!
+    }
+
+
+
     static var xlsx: UTType {
         UTType.types(tag: "xlsx", tagClass: .filenameExtension, conformingTo: nil).first!
     }
