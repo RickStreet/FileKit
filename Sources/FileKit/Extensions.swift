@@ -32,7 +32,7 @@ public extension UTType {
         UTType.types(tag: "cle", tagClass: .filenameExtension, conformingTo: nil).first!
     }
     static var collectPoint: UTType {
-        UTType.types(tag: "", tagClass: .filenameExtension, conformingTo: nil).first!
+        UTType.types(tag: ".", tagClass: .filenameExtension, conformingTo: nil).first!
     }
     static var clc: UTType {
         UTType.types(tag: "clc", tagClass: .filenameExtension, conformingTo: nil).first!
