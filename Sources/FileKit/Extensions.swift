@@ -40,6 +40,10 @@ public extension UTType {
     static var xlsx: UTType {
         UTType.types(tag: "xlsx", tagClass: .filenameExtension, conformingTo: nil).first!
     }
+    static var plist: UTType {
+        UTType.types(tag: "plist", tagClass: .filenameExtension, conformingTo: nil).first!
+    }
+
 
 
 
