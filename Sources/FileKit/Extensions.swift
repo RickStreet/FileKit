@@ -43,7 +43,12 @@ public extension UTType {
     static var plist: UTType {
         UTType.types(tag: "plist", tagClass: .filenameExtension, conformingTo: nil).first!
     }
-
+    static var csv: UTType {
+        UTType.types(tag: "csv", tagClass: .filenameExtension, conformingTo: nil).first!
+    }
+    static var tsv: UTType {
+        UTType.types(tag: "tsv", tagClass: .filenameExtension, conformingTo: nil).first!
+    }
 
 
 
