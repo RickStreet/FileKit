@@ -52,6 +52,9 @@ public extension UTType {
     static var json: UTType {
         UTType.types(tag: "json", tagClass: .filenameExtension, conformingTo: nil).first!
     }
+    static var sqlite: UTType {
+        UTType.types(tag: "sqlite", tagClass: .filenameExtension, conformingTo: nil).first!
+    }
 
 
 
