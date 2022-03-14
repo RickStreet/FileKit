@@ -101,7 +101,7 @@ public class File {
         }
         
         if response == NSApplication.ModalResponse.cancel {
-            print("No open url selected")
+            print("No open directory url selected")
             return nil
         }
         return nil
@@ -122,7 +122,7 @@ public class File {
         savePanel.nameFieldLabel = nameFieldLabel
 
         if let url = self.url {
-            print("url supplied")
+            print("save url supplied")
             savePanel.directoryURL = url
             savePanel.nameFieldStringValue = url.lastPathComponent
         } else {
