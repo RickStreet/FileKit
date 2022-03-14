@@ -49,6 +49,9 @@ public extension UTType {
     static var tsv: UTType {
         UTType.types(tag: "tsv", tagClass: .filenameExtension, conformingTo: nil).first!
     }
+    static var json: UTType {
+        UTType.types(tag: "json", tagClass: .filenameExtension, conformingTo: nil).first!
+    }
 
 
 
