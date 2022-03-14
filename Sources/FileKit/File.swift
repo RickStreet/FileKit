@@ -1,5 +1,5 @@
 //
-//  OpenFile.swift
+//  File.swift
 //  DMCRead
 //
 //  Created by Richard Street on 11/8/19.
@@ -24,6 +24,7 @@ public class File {
     public var defaultFileName: String?
 
     public func open() -> URL? {
+        print("open dialog...")
         let openPanel = NSOpenPanel()
         openPanel.title = title
         openPanel.message = message
@@ -64,6 +65,7 @@ public class File {
     }
     
     public func openDirectory() -> URL? {
+        print("openDirectory...")
         let openPanel = NSOpenPanel()
         openPanel.title = title
         openPanel.message = message
@@ -106,6 +108,7 @@ public class File {
     }
         
     public func save() -> URL? {
+        print("save dialog...")
         let savePanel = NSSavePanel()
         savePanel.title = title
         savePanel.message = message
@@ -119,10 +122,12 @@ public class File {
         savePanel.nameFieldLabel = nameFieldLabel
 
         if let url = self.url {
+            print("url supplied")
             savePanel.directoryURL = url
             savePanel.nameFieldStringValue = url.lastPathComponent
         } else {
             if useDefaultURL {
+                print("use default url")
                 if let url = GetDefaultURL() {
                     savePanel.directoryURL = url.deletingLastPathComponent()
                     savePanel.nameFieldStringValue = url.lastPathComponent
@@ -133,9 +138,9 @@ public class File {
         if let defaultName = defaultFileName {
             savePanel.nameFieldStringValue = defaultName
         }
-        
+        print("save params selected.")
         print()
-        print("opening panel...")
+        print("opening save panel...")
         let response = savePanel.runModal()
         print("got response")
         
