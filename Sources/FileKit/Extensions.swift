@@ -55,6 +55,10 @@ public extension UTType {
     static var sqlite: UTType {
         UTType.types(tag: "sqlite", tagClass: .filenameExtension, conformingTo: nil).first!
     }
+    // Template file
+    static var tmp: UTType {
+        UTType.types(tag: "tmp", tagClass: .filenameExtension, conformingTo: nil).first!
+    }
 
 
 
