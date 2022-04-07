@@ -34,28 +34,7 @@ public class UniqueFileURL {
 
         return URL(fileURLWithPath: newFullFileName)  
     }
-    
-    /*
-    func dir(fullFileName: String) -> String {
-        if let index = fullFileName.reverseIndexOf("/") {
-            // return fullFileName.substring(to: index)
-            return String(fullFileName[...index])
-        }
-        return fullFileName
-    }
-    */
-    
-    /*
-    func file(fullFileName: String) -> String {
-        if let index = fullFileName.reverseIndexOf("/") {
-            // return fullFileName.substring(from: index)
-            return String(fullFileName[index...])
-        }
-        return fullFileName
         
-    }
-    */
-    
     public init() {
         
     }
