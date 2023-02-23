@@ -29,7 +29,7 @@ public class UniqueFileURL {
             i += 1
             newFullFileName = baseFile + "-" + String(format: "%03d", i) + newExt
             // newFullFileName = baseNoVersion(file: fullFileName) + "-" + String(format: "%03d", i) + newExt
-            print("newFullFileName \(newFullFileName)")
+            // print("newFullFileName \(newFullFileName)")
         } while fm.fileExists(atPath: newFullFileName)
 
         return URL(fileURLWithPath: newFullFileName)  

@@ -24,20 +24,20 @@ public class File {
     public var defaultFileName: String?
 
     public func open() -> URL? {
-        print("open dialog...")
+        // print("open dialog...")
         let openPanel = NSOpenPanel()
         openPanel.title = title
         openPanel.message = message
         // openPanel.allowedFileTypes = allowedFileTypes
         openPanel.canCreateDirectories = canCreateDirectories
         if let url = self.url { // url provided
-            print("url provided")
+            // print("url provided")
             openPanel.directoryURL = url
         } else {
-            print("going to use default...")
+            // print("going to use default...")
             if useDefaultURL {
                 if let url = GetDefaultURL() {
-                    print("got default \(url.path)")
+                    // print("got default \(url.path)")
                     openPanel.directoryURL = url
                     }
             }
@@ -47,8 +47,8 @@ public class File {
         
         if response == NSApplication.ModalResponse.OK {
             guard let url = openPanel.url else { return nil }
-            print(url.path )
-            print()
+            // print(url.path )
+            // print()
             if self.url == nil {
                 if useDefaultURL {
                     SaveDefultURL(url)
@@ -58,14 +58,14 @@ public class File {
         }
         
         if response == NSApplication.ModalResponse.cancel {
-            print("No open url selected")
+            // print("No open url selected")
             return nil
         }
         return nil
     }
     
     public func openDirectory() -> URL? {
-        print("openDirectory...")
+        // print("openDirectory...")
         let openPanel = NSOpenPanel()
         openPanel.title = title
         openPanel.message = message
@@ -74,13 +74,13 @@ public class File {
         openPanel.canChooseFiles = false
         openPanel.canChooseDirectories = true
         if let url = self.url { // url provided
-            print("url provided")
+            // print("url provided")
             openPanel.directoryURL = url
         } else {
-            print("going to use default...")
+            // print("going to use default...")
             if useDefaultURL {
                 if let url = GetDefaultURL() {
-                    print("got default \(url.path)")
+                    // print("got default \(url.path)")
                     openPanel.directoryURL = url
                     }
             }
@@ -90,8 +90,8 @@ public class File {
         
         if response == NSApplication.ModalResponse.OK {
             guard let url = openPanel.url else { return nil }
-            print(url.path )
-            print()
+            // print(url.path )
+            // print()
             if self.url == nil {
                 if useDefaultURL {
                     SaveDefultURL(url)
@@ -101,14 +101,14 @@ public class File {
         }
         
         if response == NSApplication.ModalResponse.cancel {
-            print("No open directory url selected")
+            // print("No open directory url selected")
             return nil
         }
         return nil
     }
         
     public func save() -> URL? {
-        print("save dialog...")
+        // print("save dialog...")
         let savePanel = NSSavePanel()
         savePanel.title = title
         savePanel.message = message
@@ -122,12 +122,12 @@ public class File {
         savePanel.nameFieldLabel = nameFieldLabel
 
         if let url = self.url {
-            print("save url supplied")
+            // print("save url supplied")
             savePanel.directoryURL = url
             savePanel.nameFieldStringValue = url.lastPathComponent
         } else {
             if useDefaultURL {
-                print("use default url")
+                // print("use default url")
                 if let url = GetDefaultURL() {
                     savePanel.directoryURL = url.deletingLastPathComponent()
                     savePanel.nameFieldStringValue = url.lastPathComponent
@@ -138,26 +138,23 @@ public class File {
         if let defaultName = defaultFileName {
             savePanel.nameFieldStringValue = defaultName
         }
-        print("save params selected.")
-        print()
-        print("opening save panel...")
+        // print("save params selected.")
+        // print()
+        // print("opening save panel...")
         let response = savePanel.runModal()
-        print("got response")
+        // print("got response")
         
-        if let exts = savePanel.allowedFileTypes {
-            print("exts \(exts)")
-        }
         if response == NSApplication.ModalResponse.OK {
             guard let url = savePanel.url else { return nil}
             if useDefaultURL {
                 SaveDefultURL(url)
             }
-            print(url.path)
+            // print(url.path)
             return url
         }
         
         if response == NSApplication.ModalResponse.cancel {
-            print("No save url selected")
+            // print("No save url selected")
             return nil
         }
         return nil
@@ -172,7 +169,7 @@ public class File {
         // get default directgory
         if let key = userDefaultKey {
             if let path = UserDefaults.standard.string(forKey: key) {
-                print("Retrieved key \(key) \(path)")
+                // print("Retrieved key \(key) \(path)")
                 return URL(fileURLWithPath: path)
             }
         } else {
@@ -187,7 +184,7 @@ public class File {
     func SaveDefultURL(_ url: URL) {
         if let key = userDefaultKey {
             UserDefaults.standard.set(url.path, forKey: key)
-            print("Saved key \(key): \(url.path)")
+            // print("Saved key \(key): \(url.path)")
         } else {
             if url.path != "" {
                 UserDefaults.standard.set(url.path, forKey: "DefaultPath")
