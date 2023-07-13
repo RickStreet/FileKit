@@ -123,7 +123,7 @@ public class File {
 
         if let url = self.url {
             // print("save url supplied")
-            savePanel.directoryURL = url
+            savePanel.directoryURL = url.deletingLastPathComponent()
             savePanel.nameFieldStringValue = url.lastPathComponent
         } else {
             if useDefaultURL {
