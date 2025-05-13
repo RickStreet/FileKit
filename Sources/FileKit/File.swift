@@ -15,20 +15,20 @@ public class File {
     public var title = "Read Title"
     public var message = "Test save message"
     // public var allowedFileTypes: [String]? = nil
-    public var allowedContentTypes: [UTType] = [.vls]
+    public var allowedContentTypes: [UTType] = [.text]
     public var canCreateDirectories = true
     public var nameFieldLabel = "Save as:"
     public var useDefaultURL = true // Set false if you don't want to save last file opened
-    public var url: URL?
-    public var userDefaultKey: String?
-    public var defaultFileName: String?
+    public var url: URL? // user suplied urs for use, otherwise use default url
+    public var userDefaultKey: String? // saves default in user preferences (plist)
+    public var defaultFileName: String? // name of file (appended to url)
 
     public func open() -> URL? {
         // print("open dialog...")
         let openPanel = NSOpenPanel()
         openPanel.title = title
         openPanel.message = message
-        // openPanel.allowedFileTypes = allowedFileTypes
+        openPanel.allowedContentTypes = allowedContentTypes
         openPanel.canCreateDirectories = canCreateDirectories
         if let url = self.url { // url provided
             // print("url provided")
