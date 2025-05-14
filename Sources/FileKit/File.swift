@@ -30,6 +30,7 @@ public class File {
         openPanel.message = message
         openPanel.allowsOtherFileTypes = true
         openPanel.allowedContentTypes = allowedContentTypes
+        openPanel.canChooseFiles = true
         openPanel.canCreateDirectories = canCreateDirectories
         if let url = self.url { // url provided
             // print("url provided")
