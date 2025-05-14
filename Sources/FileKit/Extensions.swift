@@ -47,7 +47,6 @@ public extension UTType {
         UTType.types(tag: "tmp", tagClass: .filenameExtension, conformingTo: nil).first!
     }
 
-    /*
     static var ext: UTType {
         UTType.types(tag: "ext", tagClass: .filenameExtension, conformingTo: nil).first!
     }
@@ -69,7 +68,6 @@ public extension UTType {
     static var sqlite: UTType {
         UTType.types(tag: "sqlite", tagClass: .filenameExtension, conformingTo: nil).first!
     }
-    */
 
 
 
