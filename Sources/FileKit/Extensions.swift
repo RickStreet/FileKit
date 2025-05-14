@@ -12,7 +12,7 @@ import UniformTypeIdentifiers
 public extension UTType {
     // Aspen vector list
     static var vls: UTType {
-        UTType.types(tag: "vls", tagClass: .filenameExtension, conformingTo: nil).first!
+        UTType.types(tag: "vls", tagClass: .filenameExtension, conformingTo: .text).first!
     }
     // Aspen DMCplus configuration
     static var ccf: UTType {
@@ -20,7 +20,7 @@ public extension UTType {
     }
     // Apsen DMCplus model
     static var mdl: UTType {
-        UTType.types(tag: "mdl", tagClass: .filenameExtension, conformingTo: nil).first!
+        UTType.types(tag: "mdl", tagClass: .filenameExtension, conformingTo: .text).first!
     }
     // Aspen DMCplus model assembly
     static var dpa: UTType {
