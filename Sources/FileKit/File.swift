@@ -28,6 +28,7 @@ public class File {
         let openPanel = NSOpenPanel()
         openPanel.title = title
         openPanel.message = message
+        openPanel.allowsOtherFileTypes = true
         openPanel.allowedContentTypes = allowedContentTypes
         openPanel.canCreateDirectories = canCreateDirectories
         if let url = self.url { // url provided
@@ -69,6 +70,8 @@ public class File {
         let openPanel = NSOpenPanel()
         openPanel.title = title
         openPanel.message = message
+        openPanel.allowsOtherFileTypes = true
+        openPanel.allowedContentTypes = allowedContentTypes
         // openPanel.allowedFileTypes = allowedFileTypes
         openPanel.canCreateDirectories = canCreateDirectories
         openPanel.canChooseFiles = false
@@ -112,7 +115,7 @@ public class File {
         let savePanel = NSSavePanel()
         savePanel.title = title
         savePanel.message = message
-        // savePanel.allowedFileTypes = allowedFileTypes
+        savePanel.allowsOtherFileTypes = true
         savePanel.allowedContentTypes = allowedContentTypes
         savePanel.canCreateDirectories = canCreateDirectories
         savePanel.canSelectHiddenExtension = true
