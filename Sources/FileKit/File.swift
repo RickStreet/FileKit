@@ -14,8 +14,7 @@ import UniformTypeIdentifiers
 public class File {
     public var title = "Read Title"
     public var message = "Test save message"
-    // public var allowedFileTypes: [String]? = nil
-    public var allowedContentTypes: [UTType] = [.text]
+    public var allowedContentTypes: [UTType] = []
     public var canCreateDirectories = true
     public var nameFieldLabel = "Save as:"
     public var useDefaultURL = true // Set false if you don't want to save last file opened
@@ -49,7 +48,13 @@ public class File {
         
         if response == NSApplication.ModalResponse.OK {
             guard let url = openPanel.url else { return nil }
-            // print(url.path )
+            print(url.path )
+            if url.isFileURL {
+                print(url)
+                if let type = UTType(filenameExtension: URL(fileURLWithPath: url.path).pathExtension) {
+                    print(type)
+                }
+            }
             // print()
             if self.url == nil {
                 if useDefaultURL {
@@ -73,7 +78,6 @@ public class File {
         openPanel.message = message
         openPanel.allowsOtherFileTypes = true
         openPanel.allowedContentTypes = allowedContentTypes
-        // openPanel.allowedFileTypes = allowedFileTypes
         openPanel.canCreateDirectories = canCreateDirectories
         openPanel.canChooseFiles = false
         openPanel.canChooseDirectories = true
