@@ -20,7 +20,7 @@ public extension UTType {
     }
     // Apsen DMCplus model
     static var mdl: UTType {
-        UTType.types(tag: "mdl", tagClass: .filenameExtension, conformingTo: .text).first!
+        UTType.types(tag: "mdl", tagClass: .filenameExtension, conformingTo: nil).first!
     }
     // Aspen DMCplus model assembly
     static var dpa: UTType {
