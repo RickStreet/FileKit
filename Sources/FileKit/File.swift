@@ -30,6 +30,7 @@ public class File {
         openPanel.allowsOtherFileTypes = true
         openPanel.allowedContentTypes = allowedContentTypes
         openPanel.canChooseFiles = true
+        openPanel.allowsMultipleSelection = false
         openPanel.canCreateDirectories = canCreateDirectories
         if let url = self.url { // url provided
             // print("url provided")
@@ -69,6 +70,43 @@ public class File {
             return nil
         }
         return nil
+    }
+    
+    public func OpenAll() -> [URL]? {
+        var urls: [URL]?
+        let openPanel = NSOpenPanel()
+        openPanel.title = title
+        openPanel.message = message
+        openPanel.allowsOtherFileTypes = true
+        openPanel.allowedContentTypes = allowedContentTypes
+        openPanel.canChooseFiles = true
+        openPanel.allowsMultipleSelection = true
+        openPanel.canCreateDirectories = canCreateDirectories
+        if let url = self.url { // url provided
+            // print("url provided")
+            openPanel.directoryURL = url
+        } else {
+            // print("going to use default...")
+            if useDefaultURL {
+                if let url = GetDefaultURL() {
+                    // print("got default \(url.path)")
+                    openPanel.directoryURL = url
+                    }
+            }
+        }
+        
+        let response = openPanel.runModal()
+
+        if response == NSApplication.ModalResponse.OK {
+            urls = openPanel.urls
+        }
+        
+        if response == NSApplication.ModalResponse.cancel {
+            // print("No open url selected")
+            return nil
+        }
+
+        return urls
     }
     
     public func openDirectory() -> URL? {
