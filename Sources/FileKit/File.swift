@@ -72,7 +72,7 @@ public class File {
         return nil
     }
     
-    public func OpenAll() -> [URL]? {
+    public func openAll() -> [URL]? {
         var urls: [URL]?
         let openPanel = NSOpenPanel()
         openPanel.title = title
