@@ -8,6 +8,13 @@
 import Foundation
 import UniformTypeIdentifiers
 
+extension URL {
+    var isDirectory: Bool {
+       (try? resourceValues(forKeys: [.isDirectoryKey]))?.isDirectory == true
+    }
+}
+
+
 @available(macOS 11.0, *)
 public extension UTType {
     // Aspen vector list

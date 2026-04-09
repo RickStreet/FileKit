@@ -16,6 +16,7 @@ public class File {
     public var message = "Test save message"
     public var allowedContentTypes: [UTType] = []
     public var canCreateDirectories = true
+    // public var canChooseDirectories = false
     public var nameFieldLabel = "Save as:"
     public var useDefaultURL = true // Set false if you don't want to save last file opened
     public var url: URL? // user suplied urs for use, otherwise use default url
@@ -72,6 +73,8 @@ public class File {
         return nil
     }
     
+    /// Open Multiple Files (Multiple Selection)
+    /// - Returns: Array of slected urls
     public func openAll() -> [URL]? {
         var urls: [URL]?
         let openPanel = NSOpenPanel()
@@ -79,6 +82,7 @@ public class File {
         openPanel.message = message
         openPanel.allowsOtherFileTypes = true
         openPanel.allowedContentTypes = allowedContentTypes
+        openPanel.canChooseDirectories = true
         openPanel.canChooseFiles = true
         openPanel.allowsMultipleSelection = true
         openPanel.canCreateDirectories = canCreateDirectories
