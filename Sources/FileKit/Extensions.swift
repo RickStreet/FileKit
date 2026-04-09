@@ -8,7 +8,7 @@
 import Foundation
 import UniformTypeIdentifiers
 
-extension URL {
+public extension URL {
     var isDirectory: Bool {
        (try? resourceValues(forKeys: [.isDirectoryKey]))?.isDirectory == true
     }
